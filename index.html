@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
-    <title> FluidWare PRIN kick-off meeting. Modena, 11/09/2019 </title>
-    <meta content="Presentation 'Blockchain-based Coordination' given by Stefano Mariani @ FluidWare PRIN kick-off meeting - Modena, 11/09/2019" name="description">
+    <title> Speaking Objects PoC. ICDS @ Naples, 10/10/2019 </title>
+    <meta content="Presentation 'Argumentation-based Coordination in IoT: a Speaking Objects Proof-of-Concept' given by Stefano Mariani @ IDCS - Naples, 10/10/2019" name="description">
     <meta content="Stefano Mariani" name="author">
 
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -14,7 +14,7 @@
 
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/reveal.css" rel="stylesheet">
-    <link href="css/theme/blood.css" rel="stylesheet">
+    <link href="css/theme/league.css" rel="stylesheet">
     <!-- black, white, league, beige, sky, blood, night, serif, simple, solarized -->
 
     <!-- Printing and PDF exports -->
@@ -30,333 +30,270 @@
 <body>
 <div class="reveal">
     <div class="slides">
-        <section data-autoslide="5000" data-transition="fade">
+        <section>
+            <section data-autoslide="5000" data-transition="fade">
 
-            <h2> Blockchain-based Coordination: </h2>
-            <br/>
-            <h4> why, how, gaps, prototype </h4>
-            <br/>
-            <br/>
-            <p><a href="http://stefanomariani.apice.unibo.it"> Stefano Mariani </a></p>
-            <p><small><em> Università di Modena e Reggio Emilia </em></small></p>
-
-        </section>
-        <section data-transition="convex" data-autoslide="2000">
-
-            <h3> Outline </h3>
-
-            <ol>
-                <li class="fragment"> Why coordination "on the block"(chain)?</li>
-                <li class="fragment"> How? Linda as benchmark</li>
-                <li class="fragment"> Conceptual and technical gaps</li>
-                <li class="fragment"> A prototype of pro-active Smart Contracts</li>
-            </ol>
-
-        </section>
-        <section data-transition="convex">
-            <section data-transition="zoom">
-
-                <h3> Why? </h3>
-
-                <p class="fragment"> The Blockchain provides highly desirable properties from a coordination standpoint: </p>
-                    <small><ul class="fragment">
-                        <li> partial / total <span class="fragment highlight-green"> ordering </span> of events</li>
-                        <li> adjustable <span class="fragment highlight-green"> consistency </span> of replicated data</li>
-                        <li> <span class="fragment highlight-green"> accountability </span> of actions</li>
-                        <li> <span class="fragment highlight-green"> identity </span> management, non-repudiation, authentication</li>
-                        <li> (Byzantine) adjustable <span class="fragment highlight-green"> fault-tolerance </span></li>
-                    </ul></small>
-                <p class="fragment"> <span class="fragment highlight-red">Name one which is NOT relevant to the Internet of Things vision, or distributed systems in general... </span></p>
+                <h3> Argumentation-based Coordination in IoT: </h3>
+                <h2> a Speaking Objects Proof-of-Concept </h2>
+                <br/>
+                <p><a href="http://stefanomariani.apice.unibo.it"> Stefano Mariani </a></p>
+                <p><small><em> DISMI, Università di Modena e Reggio Emilia </em></small></p>
+                <br/>
+                <p> IDCS 2019 - Napoli, Italy - 10/10/2019 </p>
 
             </section>
-            <section>
+            <section data-transition="convex">
 
-                <h3> Why not :) </h3>
+                <h2> Outline </h2>
 
-                <ul>
-                    <li class="fragment"> can the Blockchain <strong>mediate interaction</strong>?</li>
-                        <small><ul class="fragment">
-                            <li> amongst off-chain entities</li>
-                            <li> amongst on-chain entities</li>
-                            <li> amongst both</li>
-                            <li> amongst any combination thereof</li>
-                        </ul></small>
-                    <li class="fragment"> can the Blockchain act as a <strong>coordination medium</strong>?</li>
-                        <small><ul class="fragment">
-                            <li> fixed coordination laws?</li>
-                            <li> application-level coordination laws?</li>
-                        </ul></small>
-                </ul>
-
-            </section>
-        </section>
-        <section data-transition="convex">
-            <section data-transition="zoom">
-
-                <h3> How? </h3>
-
-                <p class="fragment"> <em>Let's use the archetypal Linda model as a benchmark!</em> </p>
-                <ul>
-                    <li class="fragment"> can the Blockchain implement Linda <strong> core abstractions</strong>?</li>
-                        <small><ul class="fragment">
-                            <li> tuples</li>
-                            <li> templates</li>
-                            <li> matching</li>
-                            <li> tuple space</li>
-                            <li> primitives</li>
-                        </ul></small>
-                    <li class="fragment"> can the Blockchain preserve Linda <strong>essential properties</strong>?</li>
-                    <small><ul class="fragment">
-                        <li> generative communication</li>
-                        <li> associative access</li>
-                        <li> suspensive semantics</li>
-                        <li> reference, time, space uncoupling</li>
-                    </ul></small>
-                </ul>
-
-            </section>
-            <section>
-
-                <h3> Which blockchain? </h3>
-
-
-                <p class="fragment"><em>"The" Blockchain is a blurred concept</em></p>
-                <p class="fragment">Depending on</p>
-                    <small><ul class="fragment">
-                        <li><span class="fragment highlight-red">openness </span>(permission-ed/less)</li>
-                        <li><span class="fragment highlight-red">access control </span>(w.r.t. assets)</li>
-                        <li><span class="fragment highlight-red">architecture </span>(clients, miners, ...)</li>
-                        <li><span class="fragment highlight-red">state model </span>(how data is tracked)</li>
-                        <li><span class="fragment highlight-red">asset </span>(money, ownership, ...)</li>
-                        <li><span class="fragment highlight-red">programmability </span>(smart contracts, chaincode, ...)</li>
-                        <li><span class="fragment highlight-red">meta-primitives </span>(deploy, invoke, ...)</li>
-                        <li><span class="fragment highlight-red">primitives </span>(send, log, ...)</li>
-                        <li><span class="fragment highlight-red">consensus </span>(degree of consistency / fault-tolerance)</li>
-                        <li><span class="fragment highlight-red">finitness </span>(finite computations)</li>
-                    </ul></small>
-                <p class="fragment">radically <span class="fragment highlight-red">different blockchains</span> may be defined, with specific functional / non-functional properties</p>
-
-            </section>
-        </section>
-        <section data-transition="convex">
-            <section data-transition="zoom">
-
-                <h3> Ethereum </h3>
-
-                <ul class="fragment">
-                    <li>Permission<strong>less</strong> blockchain featuring Smart Contracts</li>
-                    <li>No access control, nodes are either clients or miners</li>
-                    <li>Any byte string can be the asset to keep track of</li>
-                    <li>Consensus via <strong>Proof-of-Work</strong> (resistant to Byzantine failures)</li>
-                    <li><strong>Native cryptocurrency</strong> (ETH) and Gas guarantee finite computations</li>
-                </ul>
-
-            </section>
-            <section>
-
-                <h3> EtherLinda </h3>
-
-                <ul>
-                    <li class="fragment">Mapping:</li>
-                    <small><ul class="fragment">
-                        <li> Smart Contracts implement the tuple space API </li>
-                        <li> strings are tuples, regular expressions templates </li>
-                        <li> generative communication via blocks </li>
-                        <li> associative access via regex pattern matching  </li>
-                        <li> suspensive semantics via Ethereum <strong>events mechanism</strong> </li>
-                    </ul></small>
-                    <li class="fragment"><span class="fragment highlight-red">Calling primitives costs money</span></li>
-                    <small><ul>
-                        <li class="fragment"> economic model depends on implementation </li>
-                        <li class="fragment"> e.g. <span class="fragment highlight-green">advertising model vs. market model</span> </li>
-                    </ul></small>
-                    <li class="fragment"> e.g. <span class="fragment highlight-green">Reference, time, space uncoupling preserved </span> </li>
-                </ul>
-
-            </section>
-        </section>
-        <section data-transition="convex">
-            <section data-transition="zoom">
-
-                <h3> HyperLedger Fabric </h3>
-
-                <ul class="fragment">
-                    <li>Permission<strong>ed</strong></span> blockchain featuring Chaincodes</li>
-                    <li><strong>Membership service</strong> and channels for access control, nodes can be endorserers, orderers, peers</li>
-                    <li>Any serialisable key-value pair can be the asset to keep track of</li>
-                    <li>Pluggable consensus (default: PBFT)</li>
-                    <li>Execute-Order-Validate architecture guarantees finite computations</li>
-                </ul>
-
-                <aside class="notes">timeouts stop infinite loops</aside>
-
-            </section>
-            <section>
-
-                <h3> HyperLinda </h3>
-
-                <ul>
-                    <li class="fragment">Mapping:</li>
-                    <small><ul class="fragment">
-                        <li> Chaincodes implement the tuple space API </li>
-                        <li> strings are tuples, regular expressions templates </li>
-                        <li> generative communication via blocks </li>
-                        <li> associative access via regex pattern matching  </li>
-                        <li> suspensive semantics via HyperLedger <strong>events mechanism</strong> </li>
-                    </ul></small>
-                    <li class="fragment"><span class="fragment highlight-green">Fine-grained access control, adjustable consensus</span></li>
-                    <li class="fragment"><span class="fragment highlight-red">Dirty implementation (e.g. rd)</span></li>
-                    <li class="fragment"><span class="fragment highlight-green">Reference, time, space uncoupling preserved</span></li>
-                </ul>
-
-                <aside class="notes">hacks to complete multiple primitives (rd) at once</aside>
-
-            </section>
-        </section>
-        <section data-transition="convex">
-            <section data-transition="zoom">
-
-                <h3> R3 Corda </h3>
-
-                <ul class="fragment">
-                    <li>Permission<strong>ed</strong></span> blockchain featuring Flows and Contracts</li>
-                    <li><strong>Doorman service</strong> for access control, nodes can be notaries or peers</li>
-                    <li>Any serialisable object can be the asset to keep track of</li>
-                    <li>Pluggable consensus</li>
-                    <li>No guarantees for finite computations</li>
-                </ul>
-
-                <aside class="notes">contracts are trusted</aside>
-
-            </section>
-            <section>
-
-                <h3> CorLinda </h3>
-
-                <ul>
-                    <li class="fragment">Mapping:</li>
-                    <small><ul class="fragment">
-                        <li> Vaults implement the tuple space API </li>
-                        <li> strings are tuples, regular expressions templates </li>
-                        <li> generative communication via blocks </li>
-                        <li> associative access via regex pattern matching </li>
-                        <li> suspensive semantics via Flows </li>
-                    </ul></small>
-                    <li class="fragment"><span class="fragment highlight-red">Reference uncoupling lost</span></li>
-                    <li class="fragment"><span class="fragment highlight-green">Subjective view of tuple space</span></li>
-                    <li class="fragment"><span class="fragment highlight-red">No first-class "program"</span></li>
-                </ul>
-
-                <aside class="notes">
+                <ol>
+                    <li class="fragment"> Why argumentation-based coordination in IoT?</li>
+                    <li class="fragment"> The Speaking Objects vision</li>
+                    <li class="fragment"> Real world prototype</li>
                     <ul>
-                        <li>vaults are the run-time, partial view over the ledger depending on peer interactions</li>
-                        <li>programs as clever combination of Flows, Contracts, States</li>
+                        <li class="fragment"> PoC deployment </li>
+                        <li class="fragment"> Feasibility </li>
                     </ul>
-                </aside>
-
-            </section>
-        </section>
-        <section data-transition="fade">
-            <section data-transition="zoom">
-
-                <h3> Takeaway </h3>
-
-                <p class="fragment"> <span class="fragment  highlight-red"> There is no <em>"one blockchain to rule them all"</em> </span></p>
-                <ul>
-                    <li class="fragment"> Small technical details may have huge impact on expressiveness </li>
-                    <li class="fragment"> Unfortunately, they are often abstracted away when modeling blockchain to prove properties... </li>
-                </ul>
-                <p class="fragment"> <span class="fragment highlight-green"> Blockchain-based coordination seems nevertheless possible :) </span></p>
-                <small>
-                    <p class="fragment"><em>only amongst off-chain nodes, open to application-level laws</em></p>
-                </small>
-
-            </section>
-            <section>
-
-                <h3> Mind the gap </h3>
-
-                <ul>
-                    <li class="fragment"> <span class="fragment highlight-red"> No or limited concurrency </span></li>
-                    <li class="fragment"> Full uncoupling not always possible </li>
-                    <li class="fragment"> <span class="fragment highlight-red">Suspensive semantics often needs clever / dirty implementation hacks</span> </li>
-                    <li class="fragment"> No coordination amongst on-chain programs (e.g. Smart Contracts) </li>
-                </ul>
-                <p class="fragment"><span class="fragment highlight-red">Most issues stem from Smart Contracts pure <strong>reactiveness</strong></span> </p>
-                <small>
-                    <p class="fragment"><em>they cannot do anything if not as a consequence to clients (e.g. users) input</em></p>
-                </small>
+                </ol>
 
             </section>
         </section>
         <section data-transition="convex">
+            <section>
+
+                <h2> IoT systems today </h2>
+
+                <p align="left" class="fragment"> Common design considers devices as simple providers of <em>services</em>: </p>
+                <small><ul class="fragment">
+                    <li> sensing services => <span class="fragment highlight-red"> raw data </span> </li>
+                    <li> actuating services => <span class="fragment highlight-red"> commands </span> </li>
+                </ul></small>
+                <p align="left" class="fragment"> Likewise, most designs adopt a centralised, <em>cloud-based</em> perspective: </p>
+                <small><ol class="fragment">
+                    <li> raw sensor data collected at a <span class="fragment highlight-red"> control point </span> </li>
+                    <li> there analysed to inform decision making algorithms </li>
+                    <li> finally actuator commands generated and sent </li>
+                </ol></small>
+
+            </section>
+            <section>
+
+                <h2> IoT systems tomorrow </h2>
+
+                <p align="left" class="fragment"> Devices becoming smarter by <em>embedding AI</em> algorithms: </p>
+                <small><ul class="fragment">
+                    <li> sensors: raw data => situations => <span class="fragment highlight-green"> state of affairs </span> </li>
+                    <li> actuators: commands => rules => <span class="fragment highlight-green"> goals </span> </li>
+                </ul></small>
+                <p align="left" class="fragment"> Deployments moving to <em>Fog/Edge</em>, massive scale: </p>
+                <small><ul class="fragment">
+                    <li> distributed sensing and control </li>
+                    <li> <span class="fragment highlight-green"> decentralised coordination </span> </li>
+                    <li> local actions => global effects </li>
+                </ul></small>
+
+            </section>
             <section data-transition="zoom">
 
-                <h3> Fill the gap </h3>
+                <h2> Paradigm shift </h2>
 
-                <p class="fragment"><em>Coordination needs <strong>pro-active</strong> Smart Contracts</em></p>
+                <p align="left" class="fragment"> Coordination => <span class="fragment highlight-green"> argumenting </span> about current and future “state of the affairs”: </p>
                 <ul>
-                    <li class="fragment"> <span class="fragment highlight-green"> own flow of control </span></li>
-                    <li class="fragment"> <span class="fragment highlight-green">asynchronous interaction</span> means </li>
-                    <li class="fragment"> time awareness handy, too </li>
+                    <li class="fragment"> sensors => "speaking" objects </li>
+                    <li class="fragment"> actuators => "hearing" objects </li>
+                    <li class="fragment"> protocols => argumentation frameworks </li>
                 </ul>
 
             </section>
-            <section>
+        </section>
+        <section data-transition="convex">
+            <section data-transition="zoom" data-autoslide="2000">
 
-                <h3> Our prototype </h3>
+                <h2> Speaking Objects: core idea </h2>
 
-                <ul>
-                    <li class="fragment"> Minimal Smart Contracts language </li>
-                    <small><ul>
-                        <li class="fragment">.init, .send, .when, .every</li>
-                    </ul></small>
-                    <li class="fragment"> Suitable Smart Contracts interpreter </li>
-                    <li class="fragment"> Suitable blockchain as execution infrastructure </li>
-                    <small><ul>
-                        <li class="fragment"><a href="http://tendermint.com">Tendermint</a></li>
-                        <li class="fragment">Byzantine fault-tolerant state machine replication infrastructure (ledger + consensus + dev API)</li>
-                    </ul></small>
-                </ul>
+                <img width="628" height="390" align="center" data-src="speaking-objects-idea.png" alt="The core idea behind Speaking Objects vision">
 
             </section>
-            <section>
+            <section data-transition="zoom">
 
-                <h3> Architecture </h3>
+                <h2> Speaking Objects: coordination </h2>
+
+                <p align="left" class="fragment"> <em>Interaction</em> is the focal point (vs. Smart Objects) </p>
+                <ul>
+                    <li class="fragment"> Speaking-to-Speaking => shared understanding </li>
+                    <li class="fragment"> Speaking-to-Hearing => planning </li>
+                    <li class="fragment"> Hearing-to-Hearing => joint deliberation </li>
+                </ul>
+                <p align="left" class="fragment"> Dialogue types to frame <span class="fragment highlight-green">conversational coordination</span> </p>
+
+            </section>
+            <section data-transition="zoom" data-autoslide="2000">
+
+                <h2> Speaking Objects: example </h2>
 
                 <p>
-                    <!--<img width="548" height="386" align="left" data-src="tenderfone-arch.png" alt="Tenderfone architecture">-->
-                <img width="411" height="289" align="left" data-src="tenderfone-arch.png" alt="Tenderfone architecture">
-                <li class="fragment">tuProlog interprets the Tenderfone language</li>
-                <li class="fragment">Tendermint takes care of consensus amongst replicas</li>
-                <li class="fragment">Tenderfone exposes to developers a declarative API akin to Prolog</li>
-                <small>
-                    <p class="fragment"><span class="fragment highlight-green">.init -> own control flow</span></p>
-                    <p class="fragment"><span class="fragment highlight-green">.send -> asynchronous interaction</span></p>
-                    <p class="fragment"><span class="fragment highlight-green">.when, .every -> time-awareness</span></p>
-                </small>
-
+                    <!--<img width="1018" height="678" align="center" data-src="smart-home/smart-home.png" alt="Speaking Objects exemplary smart home scenario">-->
+                    <img width="678" height="452" align="center" data-src="smart-home/smart-home.png" alt="Speaking Objects exemplary smart home scenario">
+                    <!--<img width="509" height="339" align="left" data-src="smart-home/smart-home.png" alt="Speaking Objects exemplary smart home scenario">
+                    <small><ul align="right">
+                        <li> detect home invasion, </br> act accordingly </li>
+                        </br>
+                        <li> detect energy saving opportunities, </br> act accordingly </li>
+                    </ul></small>-->
                 </p>
 
             </section>
         </section>
         <section data-transition="convex">
-            <section data-transition="zoom">
+            <section>
 
-                <h3> W.r.t. Fluidware? </h3>
+                <h2> From theory to practice </h2>
 
-                <p class="fragment fade-in-then-semi-out"> <em>Blockchain as the interaction layer for funnel processes?</em> </p>
                 <ul>
-                    <li class="fragment"><span class="fragment highlight-green">devices as nodes</span> -> identity management, non-repudiation, authentication</li>
-                    <li class="fragment"><span class="fragment highlight-green">events on the ledger</span> -> partial / total ordering, consistency</li>
-                    <li class="fragment"><span class="fragment highlight-green">funnel processes primitives as transactions</span> -> accountability</li>
+                    <li class="fragment"> Target scenarios: </li>
+                    <ul class="fragment">
+                        <li> detect <em>home invasion</em>, act accordingly </li>
+                        <li> detect <em>energy saving</em> opportunities, act accordingly </li>
+                    </ul>
+                    <li class="fragment"> Requirements: </li>
+                    <small><ol class="fragment">
+                        <li> <em>affordable</em> devices, easy acquisition => <span class="fragment highlight-green">scalability</span>, time to market </li>
+                        <li> <em>distributed</em> deployment => scalability, <span class="fragment highlight-green">faithful</span> to Speaking Objects vision </li>
+                        <li> p2p interaction => scalability, faithful to Speaking Objects vision </li>
+                        <li> basic <span class="fragment highlight-green">argumentation</span> => coordination, faithful to Speaking Objects vision </li>
+                    </ol></small>
                 </ul>
-                <p class="fragment fade-in-then-semi-out"> <em>(Byzantine) fault-tolerance, trust, etc. transparently w.r.t. applications and programming language</em> </p>
+
+            </section>
+            <section>
+
+                <h2> Issues: context vs. commonsense </h2>
+
+                <p class="fragment"> <em>Contextual</em> knowledge is: </p>
+                <small><ul class="fragment">
+                    <li> highly dynamic </li>
+                    <li> situated in time and space </li>
+                    <li> tied to specific goals and functions </li>
+                    <li> e.g. data streams from sensors </li>
+                </ul></small>
+                <p class="fragment"> <em>Commonsense</em> knowledge is: </p>
+                <small><ul class="fragment">
+                    <li> quasi-static </li>
+                    <li> non situated </li>
+                    <li> general purpose </li>
+                    <li> e.g. relative concepts such as short vs. tall, hot vs cold </li>
+                    <li> e.g. basic cause => effect laws such as light on => illumination higher </li>
+                </ul></small>
+                <p class="fragment"> <span class="fragment fade-in-then-semi-out"> Where to put it? Context at the Edge vs. commonsense in the Cloud? </span></p>
+                <p class="fragment"></p>
+
+            </section>
+            <section>
+
+                <h2> Issues: abstraction gap </h2>
+
+                <p class="fragment"> <em>Goal-orientation</em> vs. commands: </p>
+                <small><ul class="fragment">
+                    <li> <span class="fragment highlight-red">commands</span> => no processing => cheap Edge devices </li>
+                    <li> reactive rules => little processing => Edge/Fog devices? </li>
+                    <li> planning => medium processing => Edge/Fog devices + AI? </li>
+                    <li> <span class="fragment highlight-green">goals</span> => heavy processing => Cloud only? </li>
+                </ul></small>
+                <p class="fragment"> <span class="fragment fade-in-then-semi-out"> Agents at the Edge? </span></p>
+                <p class="fragment"> <em>Situations</em> vs. perceptions: </p>
+                <small><ul class="fragment">
+                    <li> <span class="fragment highlight-red">raw data</span> => no processing => cheap Edge devices </li>
+                    <li> aggregate information => little processing => Edge/Fog devices? </li>
+                    <li> information fusion => medium processing => Edge/Fog devices + AI? </li>
+                    <li> <span class="fragment highlight-green">situation recognition</span> => heavy processing => Cloud only? </li>
+                </ul></small>
+                <p class="fragment"> <span class="fragment fade-in-then-semi-out"> Machine learning at the Edge? </span></p>
+
+            </section>
+        </section>
+        <section data-transition="convex">
+            <section>
+
+                <h2> PoC: architecture </h2>
+
+                <p>
+                    <!--<img width="1024" height="768" align="center" data-src="arch.jpeg" alt="Speaking Objects exemplary smart home scenario">-->
+                    <img width="512" height="384" align="left" data-src="arch.jpeg" alt="Speaking Objects proof-of-concept architecture">
+                    <small><ul>
+                        <li class="fragment"> <em>Cloud</em> (laptop PC): </br> arbitration, </br> <span class="fragment highlight-green">goal</span> setting </li>
+                        </br>
+                        <li class="fragment"> <em>Fog</em> (Arduino / ESP): </br> embedded AI, </br> <span class="fragment highlight-green">arguments</span> generation, </br> planning </li>
+                        </br>
+                        <li class="fragment"> <em>Edge</em> (sensors / actuators): </br> raw data, </br> commands </li>
+                    </ul></small>
+                </p>
+
+            </section>
+            <section>
+
+                <h2> PoC: feasibility </h2>
+
+                <p>
+                    <img width="675" height="242" align="center" data-src="devices.png" alt="List of devices deployed to realised the PoC">
+                    <p class="fragment"> ESP modules <em>key enablers</em> of p2p </p>
+                    <small><ul class="fragment">
+                        <li> wi-fi connection to local network for any device </li>
+                        <li> basic data processing and rule-based reasoning </li>
+                    </ul></small>
+                </p>
+
+            </section>
+            <section data-background="home-invasion.png">
+
+                <h2> <font color="black">Home invasion</font> </h2>
+
+                <small><ol>
+                    <font color="black"><li class="fragment"> Night-time, window closed </li></font>
+                    <font color="black"><li class="fragment"> Indoor noise > threshold => ask accelerometer </li></font>
+                    <font color="black"><li class="fragment"> Force > threshold => ask humidity </li></font>
+                    <font color="black"><li class="fragment"> Humidity + Outdoor noise > threshold => thunderstorm </li></font>
+                </ol></small>
+
+                <p class="fragment"> <font color="black">Argument <code>no_intrusion</code> has stronger support than <code>intrusion</code></font> </p>
+
+            </section>
+            <section>
+
+                <h2> Energy saving </h2>
+
+                <p>
+                    <img width="552" height="256" align="left" data-src="energy-saving.png" alt="Final argumentation graph in energy saving scenario">
+                    <small><ul class="fragment">
+                        <li> person + sunset => lights on </li>
+                        </br>
+                        <li> TV on + preference => lights off </li>
+                        </br>
+                        <li> no movement => asleep </li>
+                        </br>
+                        <li> asleep => lights off </li>
+                    </ul></small>
+                    </br>
+                    </br>
+                    <p class="fragment"> <em>Rules are commonsense, perceptions are context</em> </p>
+                    <p class="fragment"> <small>logic facts + ConceptNet knowledge base</small> </p>
+                </p>
 
             </section>
         </section>
         <section data-transition="fade">
-            <section data-autoslide="2000">
+            <section>
+
+                <h2> Lessons learnt </h2>
+
+                <ul>
+                    <li class="fragment"> <span class="fragment highlight-green">Key technologies</span> ready for Speaking Objects </li>
+                    <li class="fragment"> Unclear where / how to deploy <span class="fragment highlight-red">commonsense</span> knowledge </li>
+                    <li class="fragment"> <span class="fragment highlight-green">Weak agency</span> feasible at the Edge / Fog </li>
+                    <li class="fragment"> Need <span class="fragment highlight-red">AI benchmarks</span> assessing where the line between Edge and Cloud is </li>
+                </ul>
+
+            </section>
+            <section data-autoslide="5000">
 
                 <br/>
                 <h2> Thanks </h2>
@@ -370,11 +307,6 @@
                 <p><small><em> Università di Modena e Reggio Emilia </em></small></p>
 
             </section>
-            <!--<section data-autoslide="3000">
-
-                <h3> References </h3>
-
-            </section>-->
         </section>
     </div>
 </div>
@@ -387,7 +319,7 @@
         // Specify the average time in seconds that you think you will spend
         // presenting each slide. This is used to show a pacing timer in the
         // speaker view
-        defaultTiming: 120,
+        defaultTiming: 90,
         // Transition style
         transition: 'slide', // none/fade/slide/convex/concave/zoom
         // Transition speed
